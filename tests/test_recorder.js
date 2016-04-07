@@ -280,6 +280,7 @@ tap.test('records nonstandard ports', function(t) {
 
   //  Create test http server and perform the tests while it's up.
   var testServer = http.createServer(function(req, res) {
+    res.setHeader('content-length', RESPONSE_BODY.length)
     res.write(RESPONSE_BODY);
     res.end();
   }).listen(8081, function(err) {
@@ -734,6 +735,7 @@ tap.test('works with clients listening for readable', function(t) {
 
   //  Create test http server and perform the tests while it's up.
   var testServer = http.createServer(function(req, res) {
+    res.setHeader('content-length', RESPONSE_BODY.length)
     res.write(RESPONSE_BODY);
     res.end();
   }).listen(8081, function(err) {
